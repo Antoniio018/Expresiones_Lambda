@@ -47,13 +47,13 @@ public class mainWindow extends Application {
         //Monthly Payment
         Label lblMonth = new Label("Monthly Payment: ");
         grid.add(lblMonth, 0, 4);
-
+        txtMonth.setEditable(false);
         grid.add(txtMonth, 1, 4);
 
         //Total Payment
         Label lblTotal = new Label("Total Payment: ");
         grid.add(lblTotal, 0, 5);
-
+        txtTotal.setEditable(false);
         grid.add(txtTotal, 1, 5);
 
         Button btnCalc = new Button("Calculate");
