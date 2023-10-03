@@ -73,17 +73,24 @@ public class mainWindow extends Application {
         double monthlyPayment = 0;
         double totalPayment = 0;
         double rForm = 0;
-        double loan = Double.parseDouble(txtLoan.getText());
-        double years = Double.parseDouble(txtYears.getText());
-        double rate = Double.parseDouble(txtInterestRate.getText());
+        try{
+            double loan = Double.parseDouble(txtLoan.getText());
+            double years = Double.parseDouble(txtYears.getText());
+            double rate = Double.parseDouble(txtInterestRate.getText());
+
+
         rForm = rate / (100*12);
         double denForm = Math.pow((1 + rForm),(12 * years));
 
         monthlyPayment = (loan * rForm) / ( 1 - ( 1 / denForm));
         totalPayment = (monthlyPayment * 12) * years;
+        } catch (Exception e){
+            System.err.println(e);
+        }
 
         txtMonth.setText("$" + String.format("%.2f",monthlyPayment));
         txtTotal.setText("$" + String.format("%.2f",totalPayment));
+
     }
 
     public static void main(String[] args) {
